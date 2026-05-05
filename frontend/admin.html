@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Secure admin dashboard for projects, team, reviews, and newsletter subscribers." />
+    <meta name="theme-color" content="#07111f" />
+    <title>Admin Dashboard | TechFario</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body class="admin-body">
+    <div class="background-glow" aria-hidden="true"></div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <main class="admin-shell">
+      <section id="loginView" class="login-view">
+        <form id="loginForm" class="glass-form login-card" novalidate>
+          <a class="brand" href="index.html">
+            <span class="brand-mark"></span>
+            <span>TechFario</span>
+          </a>
+          <div>
+            <p class="eyebrow">Secure dashboard</p>
+            <h1>Admin login</h1>
+          </div>
+          <label>Email<input name="email" type="email" autocomplete="email" required /></label>
+          <label>Password<input name="password" type="password" autocomplete="current-password" required /></label>
+          <button class="button primary" type="submit">Login</button>
+          <p class="helper-text">First setup: create an admin with <code>npm run seed:admin</code> or use the register API.</p>
+        </form>
+      </section>
+
+      <section id="dashboardView" class="dashboard-view" hidden>
+        <aside class="sidebar">
+          <a class="brand" href="index.html">
+            <span class="brand-mark"></span>
+            <span>TechFario</span>
+          </a>
+          <nav class="admin-nav" aria-label="Admin sections">
+            <button class="active" data-panel="overviewPanel" type="button">Overview</button>
+            <button data-panel="projectsPanel" type="button">Projects</button>
+            <button data-panel="teamPanel" type="button">Team</button>
+            <button data-panel="reviewsPanel" type="button">Reviews</button>
+            <button data-panel="newsletterPanel" type="button">Newsletter</button>
+          </nav>
+          <button id="logoutButton" class="button secondary" type="button">Logout</button>
+        </aside>
+
+        <div class="admin-main">
+          <header class="admin-topbar">
+            <div>
+              <p class="eyebrow">Control center</p>
+              <h1>Admin dashboard</h1>
+            </div>
+            <a class="button secondary" href="index.html">View Site</a>
+          </header>
+
+          <section id="overviewPanel" class="admin-panel active">
+            <div id="statsGrid" class="admin-stats">
+              <div class="loader">Loading stats...</div>
+            </div>
+          </section>
+
+          <section id="projectsPanel" class="admin-panel">
+            <div class="panel-heading">
+              <h2>Projects</h2>
+              <button class="button primary" data-action="new-project" type="button">Add Project</button>
+            </div>
+            <div id="projectsTable" class="table-card"></div>
+          </section>
+
+          <section id="teamPanel" class="admin-panel">
+            <div class="panel-heading">
+              <h2>Team Members</h2>
+              <button class="button primary" data-action="new-member" type="button">Add Member</button>
+            </div>
+            <div id="teamTable" class="table-card"></div>
+          </section>
+
+          <section id="reviewsPanel" class="admin-panel">
+            <div class="panel-heading">
+              <h2>Reviews</h2>
+            </div>
+            <div id="reviewsTable" class="table-card"></div>
+          </section>
+
+          <section id="newsletterPanel" class="admin-panel">
+            <div class="panel-heading">
+              <h2>Newsletter</h2>
+            </div>
+            <div class="newsletter-admin-grid">
+              <div class="table-card">
+                <h3>Subscribers</h3>
+                <div id="subscribersTable"></div>
+              </div>
+              <form id="emailForm" class="glass-form" novalidate>
+                <h3>Email composer</h3>
+                <label>Subject<input name="subject" type="text" required /></label>
+                <label>Message<textarea name="message" rows="8" required></textarea></label>
+                <button class="button primary" type="submit">Send Email</button>
+              </form>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="editorDialog" class="editor-dialog">
+      <form method="dialog" class="dialog-card">
+        <div class="dialog-heading">
+          <h2 id="dialogTitle">Edit</h2>
+          <button id="closeDialog" class="icon-button" type="button" aria-label="Close dialog">×</button>
+        </div>
+        <div id="dialogFields" class="form-grid"></div>
+        <button id="saveDialog" class="button primary" type="button">Save</button>
+      </form>
+    </dialog>
+
+    <script src="admin.js" defer></script>
+  </body>
+</html>

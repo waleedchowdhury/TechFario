@@ -1,0 +1,112 @@
+# TechFario Full-Stack Website
+
+Modern dark SaaS-style frontend with a Node.js, Express, MongoDB, JWT, and Nodemailer backend.
+
+## Folder Structure
+
+```text
+.
+├── backend
+│   ├── package.json
+│   ├── .env.example
+│   └── src
+│       ├── app.js
+│       ├── server.js
+│       ├── config
+│       ├── middleware
+│       ├── models
+│       ├── routes
+│       ├── scripts
+│       └── utils
+├── frontend
+│   ├── index.html
+│   ├── admin.html
+│   ├── styles.css
+│   ├── admin.css
+│   ├── main.js
+│   └── admin.js
+├── package.json
+└── README.md
+```
+
+## Requirements
+
+- Node.js 18+
+- MongoDB running locally or a MongoDB Atlas connection string
+- SMTP credentials for the newsletter bulk email feature
+
+## Setup
+
+```bash
+cd backend
+npm install
+copy .env.example .env
+```
+
+Edit `backend/.env`:
+
+```env
+PORT=5000
+MONGO_URI=mongodb://127.0.0.1:27017/agency_site
+JWT_SECRET=replace-with-a-long-random-secret
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your-smtp-username
+SMTP_PASS=your-smtp-password
+SMTP_FROM="Agency Team <hello@example.com>"
+```
+
+Create the first admin:
+
+```bash
+npm run seed:admin
+```
+
+Start the app:
+
+```bash
+npm start
+```
+
+Open:
+
+- Public site: `http://localhost:5000`
+- Admin panel: `http://localhost:5000/admin.html`
+
+If MongoDB is not running yet and you only want to preview the static frontend:
+
+```bash
+npm run preview:frontend
+```
+
+Then open `http://localhost:4173`. Dynamic sections use graceful fallback content until the API is available.
+
+## API Endpoints
+
+- `POST /api/auth/login`
+- `POST /api/auth/register`
+- `GET /api/projects`
+- `POST /api/projects`
+- `PUT /api/projects/:id`
+- `DELETE /api/projects/:id`
+- `GET /api/team`
+- `POST /api/team`
+- `PUT /api/team/:id`
+- `DELETE /api/team/:id`
+- `GET /api/reviews`
+- `GET /api/reviews/admin`
+- `POST /api/reviews`
+- `PUT /api/reviews/:id/verify`
+- `DELETE /api/reviews/:id`
+- `POST /api/newsletter/subscribe`
+- `GET /api/newsletter/subscribers`
+- `POST /api/newsletter/send-email`
+- `POST /api/contact`
+- `GET /api/admin/stats`
+
+Protected endpoints require:
+
+```http
+Authorization: Bearer <jwt>
+```

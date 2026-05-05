@@ -1,0 +1,11 @@
+{
+  "name": "techfario-fullstack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack agency website with vanilla frontend and Express/MongoDB backend.",
+  "scripts": {
+    "start": "npm --prefix backend start",
+    "preview:frontend": "node frontend/preview-server.js",
+    "seed:admin": "npm --prefix backend run seed:admin"
+  }
+}

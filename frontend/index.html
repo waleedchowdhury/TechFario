@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Premium software, marketing, automation, analytics, animation, and design services for ambitious digital businesses."
+    />
+    <meta name="keywords" content="software development, digital marketing, virtual assistance, automation, analytics, branding" />
+    <meta name="theme-color" content="#07111f" />
+    <meta property="og:title" content="Build. Grow. Scale." />
+    <meta property="og:description" content="A modern SaaS-level digital agency experience backed by a full REST API." />
+    <meta property="og:type" content="website" />
+    <title>Build. Grow. Scale. | Digital Agency</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-glow" aria-hidden="true"></div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <header class="site-header">
+      <nav class="navbar" aria-label="Primary navigation">
+        <a class="brand" href="#home" aria-label="Digital agency home">
+          <span class="brand-mark"></span>
+          <span>TechFario</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Projects</a>
+          <a href="#team">Team</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+          <a class="nav-admin" href="admin.html">Admin</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero section">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Digital operations, design, and automation</p>
+            <h1>Build. Grow. Scale.</h1>
+            <p>
+              We turn ambitious ideas into fast products, measurable campaigns, useful dashboards, and automated
+              workflows that keep teams moving.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#services">View Services</a>
+              <a class="button secondary" href="#contact">Contact Us</a>
+            </div>
+          </div>
+          <div class="hero-panel reveal">
+            <div class="pulse-card">
+              <span class="status-dot"></span>
+              <span>Live delivery system</span>
+            </div>
+            <div class="metric-grid">
+              <div>
+                <strong>42%</strong>
+                <span>Faster launch cycles</span>
+              </div>
+              <div>
+                <strong>18k</strong>
+                <span>Automated monthly tasks</span>
+              </div>
+              <div>
+                <strong>7</strong>
+                <span>Service lanes</span>
+              </div>
+            </div>
+            <div class="activity-line">
+              <span style="--w: 62%"></span>
+              <span style="--w: 84%"></span>
+              <span style="--w: 48%"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section about-section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">About us</p>
+          <h2>One team for product, growth, and operations.</h2>
+          <p>
+            TechFario partners with founders and growing businesses to plan, build, promote, measure, and improve
+            digital systems from one coordinated delivery hub.
+          </p>
+        </div>
+        <div class="split-layout">
+          <div class="glass-block reveal">
+            <h3>Mission</h3>
+            <p>
+              Build elegant digital infrastructure that gives businesses speed, clarity, and dependable execution.
+            </p>
+          </div>
+          <div class="glass-block reveal">
+            <h3>Vision</h3>
+            <p>
+              Become the most trusted remote partner for teams that want premium delivery without operational drag.
+            </p>
+          </div>
+        </div>
+        <div class="stats-grid reveal" aria-label="Company statistics">
+          <div><strong data-count="120">0</strong><span>Clients</span></div>
+          <div><strong data-count="340">0</strong><span>Projects</span></div>
+          <div><strong data-count="8">0</strong><span>Years Experience</span></div>
+          <div><strong data-count="97">0</strong><span>Client Satisfaction</span></div>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Services</p>
+          <h2>Specialized delivery lanes with one operating rhythm.</h2>
+        </div>
+        <div id="servicesGrid" class="cards-grid services-grid"></div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Portfolio</p>
+          <h2>Recent projects loaded from the API.</h2>
+        </div>
+        <div id="projectsGrid" class="cards-grid project-grid">
+          <div class="loader">Loading projects...</div>
+        </div>
+      </section>
+
+      <section id="team" class="section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Team</p>
+          <h2>Lean senior talent for strategy and execution.</h2>
+        </div>
+        <div id="teamGrid" class="cards-grid team-grid">
+          <div class="loader">Loading team...</div>
+        </div>
+      </section>
+
+      <section id="reviews" class="section reviews-section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Customer reviews</p>
+          <h2>Verified proof from approved clients.</h2>
+        </div>
+        <div class="review-shell reveal">
+          <button class="icon-button" id="prevReview" type="button" aria-label="Previous review">‹</button>
+          <div id="reviewsTrack" class="reviews-track">
+            <div class="loader">Loading reviews...</div>
+          </div>
+          <button class="icon-button" id="nextReview" type="button" aria-label="Next review">›</button>
+        </div>
+        <form id="reviewForm" class="glass-form reveal" novalidate>
+          <h3>Submit a client review</h3>
+          <div class="form-grid">
+            <label>Name<input name="name" type="text" autocomplete="name" required /></label>
+            <label>Position<input name="position" type="text" required /></label>
+            <label>Rating<input name="rating" type="number" min="1" max="5" value="5" required /></label>
+            <label>Photo URL<input name="image" type="url" placeholder="https://..." required /></label>
+            <label class="wide">Proof Image URL<input name="proofImage" type="url" placeholder="https://..." required /></label>
+            <label class="wide">Review<textarea name="review" rows="4" required></textarea></label>
+          </div>
+          <button class="button primary" type="submit">Submit Review</button>
+        </form>
+      </section>
+
+      <section id="newsletter" class="section newsletter-section">
+        <div class="newsletter-band reveal">
+          <div>
+            <p class="eyebrow">Newsletter</p>
+            <h2>Subscribe to updates</h2>
+            <p>Get product notes, growth ideas, automation wins, and launch updates from the team.</p>
+          </div>
+          <form id="newsletterForm" class="newsletter-form" novalidate>
+            <input name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+            <button class="button primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Tell us what you want to build.</h2>
+        </div>
+        <form id="contactForm" class="glass-form reveal" novalidate>
+          <div class="form-grid">
+            <label>Name<input name="name" type="text" autocomplete="name" required /></label>
+            <label>Email<input name="email" type="email" autocomplete="email" required /></label>
+            <label class="wide">Message<textarea name="message" rows="5" required></textarea></label>
+          </div>
+          <button class="button primary" type="submit">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <a class="brand" href="#home">
+          <span class="brand-mark"></span>
+          <span>TechFario</span>
+        </a>
+        <p>Software, growth, automation, analytics, animation, and brand systems for modern teams.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#newsletter">Newsletter</a>
+        <a href="admin.html">Admin</a>
+      </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>

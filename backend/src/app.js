@@ -17,14 +17,22 @@ const { errorHandler, notFound } = require('./middleware/errorHandler');
 
 const app = express();
 
+const corsOrigins = (process.env.FRONTEND_URLS || process.env.FRONTEND_URL || '')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(
   cors({
     origin(origin, callback) {
       const allowed = new Set([
-        process.env.FRONTEND_URL,
+        ...corsOrigins,
         'http://localhost:4173',
-        'http://127.0.0.1:4173'
+        'http://127.0.0.1:4173',
+        'http://localhost:5000',
+        'http://127.0.0.1:5000',
+        'https://waleedchowdhury.github.io'
       ]);
 
       if (!origin || allowed.has(origin)) {

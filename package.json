@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm --prefix backend start",
     "preview:frontend": "node frontend/preview-server.js",
+    "sync:pages": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/sync-pages.ps1",
     "seed:admin": "npm --prefix backend run seed:admin"
   }
 }

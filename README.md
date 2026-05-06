@@ -2,6 +2,37 @@
 
 Modern dark SaaS-style frontend with a Node.js, Express, MongoDB, JWT, and Nodemailer backend.
 
+## Live GitHub Pages Frontend
+
+GitHub Pages publishes from the repository root, so the production static files are mirrored at the root:
+
+- `index.html`
+- `admin.html`
+- `styles.css`
+- `admin.css`
+- `main.js`
+- `admin.js`
+- `site-config.js`
+
+Live frontend:
+
+```text
+https://waleedchowdhury.github.io/TechFario/
+```
+
+GitHub Pages is static hosting only. It cannot run the Node.js backend. For a fully live production site,
+deploy `backend/` to a Node host such as Render, Railway, Fly.io, or a VPS, use MongoDB Atlas, then set the
+hosted API URL in `site-config.js`:
+
+```js
+window.TECHFARIO_CONFIG = {
+  apiBaseUrl: 'https://your-backend-url.example.com'
+};
+```
+
+The backend CORS configuration already allows the GitHub Pages origin and can also read comma-separated
+production origins from `FRONTEND_URLS`.
+
 ## Folder Structure
 
 ```text
@@ -49,6 +80,7 @@ Edit `backend/.env`:
 PORT=5000
 MONGO_URI=mongodb://127.0.0.1:27017/agency_site
 JWT_SECRET=replace-with-a-long-random-secret
+FRONTEND_URLS=https://waleedchowdhury.github.io,http://localhost:5000,http://localhost:4173
 SMTP_HOST=smtp.example.com
 SMTP_PORT=587
 SMTP_SECURE=false

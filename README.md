@@ -20,6 +20,8 @@ Live frontend:
 https://waleedchowdhury.github.io/TechFario/
 ```
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2Fwaleedchowdhury%2FTechFario)
+
 GitHub Pages is static hosting only. It cannot run the Node.js backend. For a fully live production site,
 deploy `backend/` to a Node host such as Render, Railway, Fly.io, or a VPS, use MongoDB Atlas, then set the
 hosted API URL in `site-config.js`:

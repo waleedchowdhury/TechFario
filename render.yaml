@@ -1,10 +1,14 @@
 services:
   - type: web
     name: techfario-api
-    env: node
+    runtime: node
+    plan: free
+    region: oregon
     rootDir: backend
     buildCommand: npm install
     startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
     envVars:
       - key: NODE_ENV
         value: production

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Express, MongoDB, JWT, and Nodemailer backend for the agency website.",
   "main": "src/server.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "start": "node src/server.js",
     "seed:admin": "node src/scripts/seedAdmin.js"

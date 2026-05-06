@@ -8,8 +8,9 @@ async function connectDB() {
   }
 
   mongoose.set('strictQuery', true);
+  mongoose.set('bufferCommands', false);
   await mongoose.connect(mongoUri, {
-    serverSelectionTimeoutMS: 8000
+    serverSelectionTimeoutMS: 12000
   });
   console.log('MongoDB connected');
 }

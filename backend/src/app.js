@@ -3,6 +3,7 @@ require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
 const helmet = require('helmet');
+const mongoose = require('mongoose');
 const morgan = require('morgan');
 const path = require('path');
 const rateLimit = require('express-rate-limit');
@@ -59,7 +60,13 @@ app.use(
 );
 
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+  const states = ['disconnected', 'connected', 'connecting', 'disconnecting'];
+
+  res.json({
+    status: 'ok',
+    database: states[mongoose.connection.readyState] || 'unknown',
+    timestamp: new Date().toISOString()
+  });
 });
 
 app.use('/api/auth', authRoutes);

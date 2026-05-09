@@ -1,3 +1,3 @@
 window.TECHFARIO_CONFIG = {
-  apiBaseUrl: ''
+  apiBaseUrl: 'https://techfario-api.onrender.com'
 };
